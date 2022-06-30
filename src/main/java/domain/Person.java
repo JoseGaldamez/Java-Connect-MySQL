@@ -5,8 +5,11 @@ package domain;
  * @author jose_galdamez
  */
 
+
+// Esta clase es modelo de datos que tendrán los valores que obtenga en la base de datos.
 public class Person {
     
+    // las personas (clientes) que tengamos en la base de datos tendrán estos campos con estos tipos de datos
     private int id_client;
     private String name;
     private String last_name;
@@ -14,6 +17,9 @@ public class Person {
     private String email;
     private String phone;
 
+    
+    // Creamos un método constructor para poder crear instancias de la clase
+    // podemos crear tantos métodos contructores como queramos.
     public Person(int id_client, String name, String last_name, String age, String email, String phone) {
         this.id_client = id_client;
         this.name = name;
@@ -23,6 +29,7 @@ public class Person {
         this.phone = phone;
     }
 
+    // para el ejemplo querremos imprimir todos los campos de las instancias con un solo método
     @Override
     public String toString() {
         return "Persona{" + "id_client=" + id_client + ", name=" + name + ", last_name=" + last_name + ", age=" + age + ", email=" + email + ", phone=" + phone + '}';
@@ -31,7 +38,7 @@ public class Person {
     
     
     
-    // getters and setters
+    // getters and setters para las instancias
     public int getId_client() {
         return id_client;
     }
@@ -80,8 +87,5 @@ public class Person {
         this.phone = phone;
     }
 
-
-    
-    
     
 }
