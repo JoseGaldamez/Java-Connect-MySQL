@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PersonDAO {
     
@@ -58,7 +56,7 @@ public class PersonDAO {
                 Conexion.closeStatement(preparedStatement);
                 Conexion.closeConnection(conn);
             } catch (SQLException ex) {
-                Logger.getLogger(PersonDAO.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex);
             }
             
             
