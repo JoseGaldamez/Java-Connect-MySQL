@@ -35,7 +35,7 @@ public class PersonDAO {
             
             while (resultSet.next()) {
                 
-                persona = Person(
+                persona = new Person(
                                     resultSet.getInt("id_client"),
                                     resultSet.getString("name"),
                                     resultSet.getString("last_name"),
@@ -66,8 +66,6 @@ public class PersonDAO {
        
     } 
 
-    private Person Person(int aInt, String string, String string0, String string1, String string2, String string3) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
     
 }
