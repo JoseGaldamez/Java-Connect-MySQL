@@ -1,6 +1,6 @@
 # Java Connection to MySQL
 
-This is a little project in Apache NetBeans with Java and the driver_mysql. This is part of the clase of Advanced Programming I of the Technology University of Honduras. With the master **Hector Conrado Lanza A**.
+This is a little project in Apache NetBeans with Java and the driver_mysql. This is part of the clase of Advanced Programming I of the **Technology University of Honduras (UTH)** with the master **Hector Conrado Lanza A**.
 
 First is important to undestand than you have to install MySQL in your computer to test the system here created. You can download the installer [right here.](https://dev.mysql.com/downloads/installer/) Download the version of your operating system and install it.
 > I recommend to use a software to check the structure of the DB in a graphic environment. You can download a software like [My SQL Workbench](https://dev.mysql.com/downloads/workbench/). The community version is absolutely for free.
