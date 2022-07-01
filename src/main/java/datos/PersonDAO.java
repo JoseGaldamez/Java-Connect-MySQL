@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PersonDAO {
     
@@ -92,6 +94,45 @@ public class PersonDAO {
         return personas;
        
     } 
+    
+    public int insertarCliente(Person persona){
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        
+        String SQL_INSERT = "INSERT INTO clients (name, last_name, age, email, phone) ";
+        SQL_INSERT += "VALUES (?, ?, ?, ?, ?)";
+    
+        try {
+            conn = Conexion.getConnection();
+            preparedStatement = conn.prepareStatement(SQL_INSERT);
+            preparedStatement.setString(1, persona.getName());
+            preparedStatement.setString(2, persona.getLast_name());
+            preparedStatement.setString(3, persona.getAge());
+            preparedStatement.setString(4, persona.getEmail());
+            preparedStatement.setString(5, persona.getPhone());
+            
+            
+            preparedStatement.executeUpdate();
+            
+            return 1;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return 0;
+            
+        } finally{
+            try {
+                
+                Conexion.closeStatement(preparedStatement);
+                Conexion.closeConnection(conn);
+                
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+        }
+        
+    }
 
 
     

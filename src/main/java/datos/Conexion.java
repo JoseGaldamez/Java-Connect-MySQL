@@ -19,7 +19,7 @@ public class Conexion {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test"; // asumiendo que su base de datos se llama "test"
     private static final String JDBC_USER = "jose_galdamez";
     //private static final String JDBC_USER = "<USUARIO_MYSQL>";
-    private static final String JDBC_PASSWORD = "<Magodeoz1991>";
+    private static final String JDBC_PASSWORD = "Magodeoz1991";
     //private static final String JDBC_PASSWORD = "<PASSWORD_MYSQL>";
     
     
