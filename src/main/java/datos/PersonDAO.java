@@ -177,6 +177,45 @@ public class PersonDAO {
         }
         
     }
+    
+    
+    
+    
+    public int borrarCliente(int client_id){
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        
+        String SQL_DELETE = "DELETE FROM clients WHERE id_client=?";
+    
+        try {
+            conn = Conexion.getConnection();
+            preparedStatement = conn.prepareStatement(SQL_DELETE);
+            
+            
+            preparedStatement.setInt(1, client_id);
+            
+            
+            preparedStatement.executeUpdate();
+            
+            return 1;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return 0;
+            
+        } finally{
+            try {
+                
+                Conexion.closeStatement(preparedStatement);
+                Conexion.closeConnection(conn);
+                
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+        }
+        
+    }
 
 
     

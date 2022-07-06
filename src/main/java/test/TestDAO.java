@@ -29,11 +29,12 @@ public class TestDAO {
         
         
         while (optionSelected != 0) { 
-            System.out.println("Seleccione una acción a realizar");
-            System.out.println("_________________________________");
+            System.out.println("\n\n_____________________________________");
+            System.out.println("\nSeleccione una acción a realizar\n");
             System.out.println("1. Listar clientes");
             System.out.println("2. Ingresar nuevo cliente.");
             System.out.println("3. Actualizar un cliente existente.");
+            System.out.println("4. Borrar un cliente.");
             System.out.println("0. Salir del sistema.");
             
             System.out.print("Su selección: ");
@@ -51,8 +52,13 @@ public class TestDAO {
                     updateClient(personDao, scanner);
                     break;
                     
+                case 4:
+                    deleteClient(personDao, scanner);
+                    break;
+                    
                 case 0:
                     System.out.println("[!] Saliendo del sistema...");
+                    break;
                     
                 default:
                     System.out.println("\n[!] Ingrese una opción del menu válida...\n\n");
@@ -73,6 +79,32 @@ public class TestDAO {
             // nos regresa la información de cada uno de los registros de la tabla
             // obviamente si no hay registros no hay impresiones
             System.out.println(persona.toString());
+        }
+        
+    }
+    
+    public static void deleteClient( PersonDAO personDAO, Scanner scanner ){
+        
+        System.out.println("Seleccione un registro para actualizar");
+        System.out.println("________________________________________");
+        selectClients(personDAO);
+        
+        System.out.print("Id del cliente seleccionado: ");
+        int clientSelected = scanner.nextInt();
+    
+        System.out.print("\n\n¿Está seguro de querer eliminar el usuario?\n1. Si\n2. No\n\nSu respuesta: ");
+        int borrar = scanner.nextInt();
+        if (borrar == 1) {
+            
+        if(personDAO.borrarCliente(clientSelected) == 1){
+        
+            System.out.println("Registro borrar exitosamente.");
+            
+        } else {
+            System.out.println("Algo salio mal.");
+        }
+        } else {
+            System.out.println("\nSaliendo...\nVolviendo al menú...");
         }
         
     }
