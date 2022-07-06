@@ -33,6 +33,7 @@ public class TestDAO {
             System.out.println("_________________________________");
             System.out.println("1. Listar clientes");
             System.out.println("2. Ingresar nuevo cliente.");
+            System.out.println("3. Actualizar un cliente existente.");
             System.out.println("0. Salir del sistema.");
             
             System.out.print("Su selección: ");
@@ -44,6 +45,10 @@ public class TestDAO {
                     break;
                 case 2:
                     insertClient(personDao, scanner);
+                    break;
+                    
+                case 3:
+                    updateClient(personDao, scanner);
                     break;
                     
                 case 0:
@@ -71,6 +76,46 @@ public class TestDAO {
         }
         
     }
+    
+    
+    public static void updateClient( PersonDAO personDAO, Scanner scanner ){
+        
+        System.out.println("Seleccione un registro para actualizar");
+        System.out.println("________________________________________");
+        selectClients(personDAO);
+        
+        System.out.print("Id del cliente seleccionado: ");
+        int clientSelected = scanner.nextInt();
+    
+        
+        System.out.print("Ingrese el nombre: ");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        
+        System.out.print("Ingrese el apellido: ");
+        String lastname = scanner.nextLine();
+        
+        System.out.print("Ingrese el age: ");
+        String age = scanner.nextLine();
+        
+        System.out.print("Ingrese el email: ");
+        String email = scanner.nextLine();
+        
+        System.out.print("Ingrese el phone: ");
+        String phone = scanner.nextLine();
+        
+        Person persona = new Person(clientSelected, name, lastname, age, email, phone);
+        
+        if(personDAO.actualizarCliente(persona) == 1){
+        
+            System.out.println("Registro se actualizó exitosamente.");
+            
+        } else {
+            System.out.println("Algo salio mal.");
+        }
+    }
+    
+    
     
     public static void insertClient( PersonDAO personDAO, Scanner scanner ){
     

@@ -133,6 +133,50 @@ public class PersonDAO {
         }
         
     }
+    
+    
+    
+    public int actualizarCliente(Person persona){
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        
+        String SQL_UPDATE = "UPDATE clients SET name=?, last_name=?, age=?, email=?, phone=? WHERE id_client=?";
+    
+        try {
+            conn = Conexion.getConnection();
+            preparedStatement = conn.prepareStatement(SQL_UPDATE);
+            
+            preparedStatement.setString(1, persona.getName());
+            preparedStatement.setString(2, persona.getLast_name());
+            preparedStatement.setString(3, persona.getAge());
+            preparedStatement.setString(4, persona.getEmail());
+            preparedStatement.setString(5, persona.getPhone());
+            
+            preparedStatement.setInt(6, persona.getId_client());
+            
+            
+            
+            preparedStatement.executeUpdate();
+            
+            return 1;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return 0;
+            
+        } finally{
+            try {
+                
+                Conexion.closeStatement(preparedStatement);
+                Conexion.closeConnection(conn);
+                
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
+        }
+        
+    }
 
 
     
